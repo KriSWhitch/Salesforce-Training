@@ -3,6 +3,7 @@
   <types>
     <name>ApexClass</name>
     <members>MaintenanceRequestHelper</members>
+    <members>WarehouseCalloutService</members>
   </types>
   <types>
     <name>CustomObjectTranslation</name>

@@ -6,7 +6,10 @@
     <members>MaintenanceRequestHelper</members>
     <members>MaintenanceRequestTest</members>
     <members>WarehouseCalloutService</members>
+    <members>WarehouseCalloutServiceMock</members>
+    <members>WarehouseCalloutServiceTest</members>
     <members>WarehouseSyncSchedule</members>
+    <members>WarehouseSyncScheduleTest</members>
   </types>
   <types>
     <name>CustomObjectTranslation</name>

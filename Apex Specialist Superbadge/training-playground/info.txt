@@ -1,4 +1,0 @@
-org name: apex-training
-
-login: test-keqj6jknor15@example.com
-password: Yec-4Nq-776-LnF

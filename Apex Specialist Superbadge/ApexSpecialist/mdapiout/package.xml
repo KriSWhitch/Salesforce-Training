@@ -4,6 +4,7 @@
     <name>ApexClass</name>
     <members>MaintenanceRequestHelper</members>
     <members>WarehouseCalloutService</members>
+    <members>WarehouseSyncSchedule</members>
   </types>
   <types>
     <name>CustomObjectTranslation</name>

@@ -4,7 +4,7 @@ public class IwnReadCsvFileControllerTest {
         'Leeds,1,Enabled ,R8 \n' +
         'Glasgow Central,2,Enabled,R8';
 @isTest
-    public static void testIdLoadSuccesfull(){
+    public static void testReadCSVFile(){
     Base_Station__c newBS = new Base_Station__c(Name = 'Leeds');
     upsert newBS;
     Sensor__c newSensor = new Sensor__c (Name = '1', Sensor_Id__c = 1, Status__c = 'Enabled', Base_Station__c = newBs.id);
@@ -19,10 +19,6 @@ public class IwnReadCsvFileControllerTest {
     Id getId = [Select ContentDocumentId From ContentVersion Where Id =:contentVersionInsert.id and isLatest=true].ContentDocumentId;
     List<Sensor__c> result = lwnReadCsvFileController.readCSVFile(getId);
 }
-    
-@isTest
-public static void testIdLoadFailed(){
-    List<Sensor__c> result = lwnReadCsvFileController.readCSVFile(null);
-}
+
     
 }

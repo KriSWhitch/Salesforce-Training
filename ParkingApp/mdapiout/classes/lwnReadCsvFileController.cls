@@ -32,15 +32,12 @@ public inherited sharing class lwnReadCsvFileController {
                 NewBSRec.add(newBS);
             }
             upsert newBSRec;
-            system.debug([SELECT Name, Id  From Base_Station__c]);
             
 
             //creating Sensor records
             for(Integer i = 1; i < lstCSVLines.size(); i++){
-                system.debug('1');
                 Sensor__c objRec = new Sensor__c();
                 list<String> csvRowData = lstCSVLines[i].split(',');
-                System.debug('csvRowData====> '+csvRowData);
                 string tempBase = csvRowData[0];
                 objRec.Name = csvRowData[1];
                 objRec.Base_Station__c = [SELECT Id From Base_Station__c Where Name = :tempBase ].id;
@@ -49,12 +46,7 @@ public inherited sharing class lwnReadCsvFileController {
                 objRec.Sensor_Model__c = csvRowData[3];
                 lstSensToInsert.add(objRec);
             }
-            system.debug('2');
-            system.debug(lstSensToInsert);
-
-            try{    
                 if(!lstSensToInsert.isEmpty()) {
-                    system.debug('3');
                     List<Sensor__c> createdSenRec = [SELECT Name, Sensor_ID__c  From Sensor__c];
                     for (Sensor__c sens : lstSensToInsert ) {
                         integer coincidences = 0;
@@ -70,10 +62,6 @@ public inherited sharing class lwnReadCsvFileController {
                         }
                     }
                 }
-            }
-            catch (Exception ex) {
-                throw new AuraHandledException(ex.getMessage());
-            } 
         }
         return lstSensToInsert;    
     }

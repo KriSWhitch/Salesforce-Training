@@ -32,6 +32,7 @@ public inherited sharing class lwnReadCsvFileController {
                 NewBSRec.add(newBS);
             }
             upsert newBSRec;
+            
 
             //creating Sensor records
             for(Integer i = 1; i < lstCSVLines.size(); i++){
@@ -45,8 +46,6 @@ public inherited sharing class lwnReadCsvFileController {
                 objRec.Sensor_Model__c = csvRowData[3];
                 lstSensToInsert.add(objRec);
             }
-
-            try{    
                 if(!lstSensToInsert.isEmpty()) {
                     List<Sensor__c> createdSenRec = [SELECT Name, Sensor_ID__c  From Sensor__c];
                     for (Sensor__c sens : lstSensToInsert ) {
@@ -63,10 +62,6 @@ public inherited sharing class lwnReadCsvFileController {
                         }
                     }
                 }
-            }
-            catch (Exception ex) {
-                throw new AuraHandledException(ex.getMessage());
-            } 
         }
         return lstSensToInsert;    
     }
